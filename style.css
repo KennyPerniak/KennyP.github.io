@@ -9,8 +9,8 @@ base-color: orange;
 
 /* Mixin's */  
 @mixin transition {
--webkit-transition: all 0.5s ease-in-out;
--moz-transition: all 0.5s ease-in-out;
+webkit-transition: all 0.5s ease-in-out;
+moz-transition: all 0.5s ease-in-out;
 transition: all 0.5s ease-in-out;
 }
 @mixin corners ($radius) {
@@ -21,9 +21,11 @@ border-radius: $radius;
 }
 
 body {
-background: rgb(238, 87, 87);
+background-image: url(background2.gif);
+background-size: cover;
+background-repeat: no-repeat;
 font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-height:100%;
+height: 100%;
 }
 
 .wrapper {
@@ -31,9 +33,10 @@ width: 800px;
 margin: 30px auto;
 color: black;
 text-align: center;
-border: 3px black solid;
 border-radius: 120px;
-background: linear-gradient(60deg, red, white, blue);
+position: relative;
+top: 290px;
+right: 10px;
 }
 
 h1, h2, h3 {
@@ -42,14 +45,17 @@ h1, h2, h3 {
   font-size: 2.6em;
   text-transform: uppercase;
   text-decoration: underline;
+  color: white;
+  opacity: .8;
 }
 
-#seconds, #tens{
+#hours, #minutes, #seconds, #tens{
   font-size:2em;
+  color: orange;
 }
 
 button{
-border-radius: 5px;
+border-radius: 70px;
 background: blue;
 color: rgb(255, 255, 98);
 border: solid 2px $black;
@@ -57,15 +63,18 @@ text-decoration: ;
 cursor:pointer;
 font-size:1.2em;
 padding:18px 10px;
-width:180px;
+width: 70px;
 margin: 10px;
 outline: none;
+opacity: .85;
 }
 
 button:hover{
     transition;
  	background: red;
-	border: dashed 3px black;
-	text-decoration: underline;
     color: rgb(0, 204, 255);
 	}
+
+p {
+    color: white;
+}
