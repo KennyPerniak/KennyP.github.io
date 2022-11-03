@@ -2,8 +2,12 @@ window.onload = function () {
   
     var seconds = 00; 
     var tens = 00; 
+    var minutes = 00;
+    var hours = 00;
     var appendTens = document.getElementById("tens")
     var appendSeconds = document.getElementById("seconds")
+    var appendMinutes = document.getElementById("minutes")
+    var appendHours = document.getElementById("hours")
     var buttonStart = document.getElementById('button-start');
     var buttonStop = document.getElementById('button-stop');
     var buttonReset = document.getElementById('button-reset');
@@ -21,11 +25,15 @@ window.onload = function () {
     
   
     buttonReset.onclick = function() {
-       clearInterval(Interval);
-      tens = "00";
-        seconds = "00";
-      appendTens.innerHTML = tens;
-        appendSeconds.innerHTML = seconds;
+    clearInterval(Interval);
+    tens = "00";
+    seconds = "00";
+    minutes = "00";
+    hours = "00";
+    appendHours.innerHTML = hours;
+    appendMinutes.innerHTML = minutes;
+    appendTens.innerHTML = tens;
+    appendSeconds.innerHTML = seconds;
     }
     
      
@@ -49,11 +57,47 @@ window.onload = function () {
         tens = 0;
         appendTens.innerHTML = "0" + 0;
       }
-      
-      if (seconds > 9){
+
+      if(seconds <= 9){
+        appendSeconds.innerHTML = "0" + seconds;
+      }
+
+      if(seconds > 9){
         appendSeconds.innerHTML = seconds;
       }
-    
+
+      
+      if(seconds > 59){
+        console.log("minutes");
+        minutes++;
+        appendMinutes.innerHTML = "0" + minutes;
+        seconds = 0;
+        appendSeconds.innerHTML = "0" + 0;
+      }
+
+      if(minutes <= 9){
+        appendMinutes.innerHTML = "0" + minutes;
+      }
+      
+      if(minutes > 9){
+        appendMinutes.innerHTML = minutes;
+      }
+
+      if(minutes > 59){
+        console.log("hour");
+        hours++;
+        appendHours.innerHTML = "0" + hours;
+        minutes = 0;
+        appendMinutes.innerHTML = "0" + 0;
+      }
+
+      if(hours <= 9){
+        appendHours.innerHTML = "0" + hours;
+      }
+
+      if(hours > 9){
+        appendHours.innerHTML = hours;
+      }
     }
     
   
